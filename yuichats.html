@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Images</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: grey;
+        }
+        .draggable {
+            position: absolute;
+            cursor: grab;
+            width: 400px; /* Adjust size as needed */
+        }
+    </style>
+</head>
+<body>
+
+    <img src="img/yuichats/amongus.jpg" alt="Image 1" class="draggable" style="width:550px; height:300px"/>
+    <img src="img/yuichats/booba.jpg" alt="Image 2" class="draggable" />
+    <img src="img/yuichats/gaysuc.jpg"alt="Image 3" class="draggable" />
+    <img src="img/yuichats/virginity.jpg"alt="Image 4" class="draggable" style="width:400px; height:100px" />
+    <img src="img/yuichats/bota.jpg" alt="Image 5" class="draggable"/>
+    <img src="img/yuichats/funny.jpg" alt="Image 6" class="draggable" />
+    <img src="img/yuichats/noods.jpg"alt="Image 7" class="draggable" />
+    <img src="img/yuichats/hjob.jpg"alt="Image 8" class="draggable" />
+
+
+
+    <script>
+        // Function to place images randomly on the screen
+        function placeImages() {
+            const images = document.querySelectorAll('.draggable');
+            images.forEach(img => {
+                const randomX = Math.random() * (window.innerWidth - img.clientWidth);
+                const randomY = Math.random() * (window.innerHeight - img.clientHeight);
+                img.style.left = randomX + 'px';
+                img.style.top = randomY + 'px';
+            });
+        }
+
+        // Drag and drop functionality
+        let selectedImage = null;
+        let offsetX, offsetY;
+
+        document.addEventListener('mousedown', (event) => {
+            if (event.target.classList.contains('draggable')) {
+                selectedImage = event.target;
+                offsetX = event.clientX - selectedImage.getBoundingClientRect().left;
+                offsetY = event.clientY - selectedImage.getBoundingClientRect().top;
+                selectedImage.style.cursor = 'grabbing';
+                event.preventDefault(); // Prevent the default drag behavior
+            }
+        });
+
+        document.addEventListener('mousemove', (event) => {
+            if (selectedImage) {
+                selectedImage.style.left = (event.clientX - offsetX) + 'px';
+                selectedImage.style.top = (event.clientY - offsetY) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (selectedImage) {
+                selectedImage.style.cursor = 'grab';
+                selectedImage = null;
+            }
+        });
+
+        // Prevent default dragging behavior on images
+        document.addEventListener('dragstart', (event) => {
+            if (event.target.classList.contains('draggable')) {
+                event.preventDefault();
+            }
+        });
+
+        // Initial placement of images
+        window.onload = placeImages;
+    </script>
+</body>
+</html>
