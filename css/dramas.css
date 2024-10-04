@@ -1,0 +1,136 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    background: grey;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  img {
+      display: block;
+      margin: auto;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+  }
+  
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 70px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 8.33%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+    height: 200px;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+
+  /* Semi-opaque textbox styles */
+.semi-opaque-textbox {
+    
+    position: absolute; /* Position relative to the page or parent */
+    bottom: 50px; /* Distance from the bottom of the screen */
+    left: 50%; /* Align the left edge at 50% of the screen width */
+    transform: translateX(-50%); /* Move the box left by 50% of its own width to center it */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white; /* Text color */
+    padding: 20px; /* Space inside the box */
+    border-radius: 100px; /* Rounded corners */
+    width: 800px; /* Max width of the box */
+    font-size: 30px; /* Adjust the font size */
+    text-align: center;
+}
+
+
+.semi-opaque-textbox p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+#myVideo {
+    
+    margin: auto;
+    max-height: 99%;
+    max-width: 100%;
+    overflow: hidden;
+    
+  }
+
